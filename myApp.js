@@ -10,14 +10,14 @@ app.get('/', (req,res) => {
   res.sendFile(vwPath)
 });
 
-var msg;
-if (process.env.MESSAGE_STYLE === 'uppercase') {
-      msg = {"message": "HELLO JSON"}
-} else {
-      msg = {"message": "Hello json"}
-}
 console.log("msg:", msg);
 app.get('/json', (req, res) => {
+  var msg;
+  if (process.env.MESSAGE_STYLE === 'uppercase') {
+    msg = {"message": "HELLO JSON"}
+  } else {
+    msg = {"message": "Hello json"}
+  }
   res.json(msg)
 });
 
