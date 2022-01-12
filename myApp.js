@@ -12,6 +12,14 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Build a time request function by chaining two middleware functions
+app.get("/now", function (req, res, next) {
+  req.time = new Date().toString();
+  next();
+}, function(req, res, next) {
+  res.send({time: req.time})
+});
+
 // Display the root page which comes from the INDEX.HTML file
 var vwPath = __dirname + '/views/index.html';
 app.get('/', (req,res) => {
