@@ -25,6 +25,12 @@ app.get("/:word/echo", function (req, res) {
   res.send({echo: req.params.word})
 });
 
+// Build an API end point for '/name'
+app.get("/name", function(req, res) {
+  var {first: firstname, last: lastname} = req.query;
+  res.json({name: `${firstname} ${lastname}`});
+});
+
 // Display the root page which comes from the INDEX.HTML file
 var vwPath = __dirname + '/views/index.html';
 app.get('/', (req,res) => {
