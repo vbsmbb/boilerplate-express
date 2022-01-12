@@ -22,7 +22,7 @@ app.get("/now", function (req, res, next) {
 
 // Build an echo server mounted at "Get /:word/echo"
 app.get("/:word/echo", function (req, res) {
-  res.json(req.params.word)
+  res.send({echo: req.params.word})
 });
 
 // Display the root page which comes from the INDEX.HTML file
