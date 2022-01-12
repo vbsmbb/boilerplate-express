@@ -20,6 +20,11 @@ app.get("/now", function (req, res, next) {
   res.send({time: req.time})
 });
 
+// Build an echo server mounted at "Get /:word/echo"
+app.get("/:word/echo", function (req, res, next) {
+  res.send({word: req.params.word})
+});
+
 // Display the root page which comes from the INDEX.HTML file
 var vwPath = __dirname + '/views/index.html';
 app.get('/', (req,res) => {
