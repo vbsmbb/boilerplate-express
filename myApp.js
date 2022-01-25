@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 require('dotenv').config();
 
 // Build static path to CSS file using a middleware function
@@ -11,6 +12,9 @@ app.use(function (req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
   next();
 });
+
+// Use a body parser to collect POST data
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Build a time request function by chaining two middleware functions
 app.get("/now", function (req, res, next) {
