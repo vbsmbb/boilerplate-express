@@ -56,8 +56,8 @@ app.get('/json', (req, res) => {
 
 // Create a POST collector for the /name route
 app.post('/name', urlencodedParser, (req, res) => {
-  var firstname = req.body.firstname;
-  var lastname = req.body.lastname;
+  var firstname = req.body.first;
+  var lastname = req.body.last;
   res.json({name: `${firstname} ${lastname}`})
 });
 
