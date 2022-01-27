@@ -14,7 +14,8 @@ app.use(function (req, res, next) {
 });
 
 // Use a body parser to collect POST data
-app.use(bodyParser.urlencoded({extended: false}));
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+app.use(urlencodedParser);
 
 // Build a time request function by chaining two middleware functions
 app.get("/now", function (req, res, next) {
@@ -52,6 +53,9 @@ app.get('/json', (req, res) => {
   }
   res.json(msg)
 });
+
+// Create a POST collector for the /name route
+app.post('/name', urlencodedPArser, ); 
 
 console.log("Hello World");
 
